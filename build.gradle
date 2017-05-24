@@ -1,0 +1,50 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven { url "http://repo.spring.io/plugins-release" }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}"
+        classpath "io.spring.gradle:propdeps-plugin:0.0.8"
+    }
+}
+
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'checkstyle'
+    id 'findbugs'
+}
+
+group 'de.joergherbst'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.easyrules:easyrules-core:2.4.0'
+
+    compileOnly('org.projectlombok:lombok')
+
+    testCompile('org.codehaus.groovy:groovy-all:2.4.6')
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-4')
+    testCompile('org.spockframework:spock-spring:1.1-groovy-2.4-rc-4')
+
+}
+
+checkstyle {
+    toolVersion = '6.14.1'
+}
