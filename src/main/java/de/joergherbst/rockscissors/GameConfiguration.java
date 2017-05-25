@@ -1,13 +1,13 @@
-package de.joergherbst.rockscissor;
+package de.joergherbst.rockscissors;
 
-import static de.joergherbst.rockscissor.Tile.PAPIER;
-import static de.joergherbst.rockscissor.Tile.SCHERE;
-import static de.joergherbst.rockscissor.Tile.STEIN;
+import static de.joergherbst.rockscissors.Tile.PAPIER;
+import static de.joergherbst.rockscissors.Tile.SCHERE;
+import static de.joergherbst.rockscissors.Tile.STEIN;
 
-import de.joergherbst.rockscissor.rules.PapierWickeltStein;
-import de.joergherbst.rockscissor.rules.RockScissorRule;
-import de.joergherbst.rockscissor.rules.SchereSchneidetPapier;
-import de.joergherbst.rockscissor.rules.SteinSchleiftSchere;
+import de.joergherbst.rockscissors.rules.PapierWickeltStein;
+import de.joergherbst.rockscissors.rules.RockScissorsRule;
+import de.joergherbst.rockscissors.rules.SchereSchneidetPapier;
+import de.joergherbst.rockscissors.rules.SteinSchleiftSchere;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -26,18 +26,18 @@ public class GameConfiguration {
     /**
      * A List of all rules which are defined in this games
      */
-    private List<Class<? extends RockScissorRule>> rules = Arrays.asList(
+    private List<Class<? extends RockScissorsRule>> rules = Arrays.asList(
         PapierWickeltStein.class, SchereSchneidetPapier.class, SteinSchleiftSchere.class);
 
     public List<String> getTiles() {
         return tiles;
     }
 
-    public List<Class<? extends RockScissorRule>> getRules() {
+    public List<Class<? extends RockScissorsRule>> getRules() {
         return rules;
     }
 
-    public void setRules(List<Class<? extends RockScissorRule>> rules) {
+    public void setRules(List<Class<? extends RockScissorsRule>> rules) {
         this.rules = rules;
     }
 

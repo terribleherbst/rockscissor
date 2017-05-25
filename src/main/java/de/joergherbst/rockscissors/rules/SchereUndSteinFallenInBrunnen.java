@@ -1,14 +1,14 @@
-package de.joergherbst.rockscissor.rules;
+package de.joergherbst.rockscissors.rules;
 
-import static de.joergherbst.rockscissor.Tile.BRUNNEN;
-import static de.joergherbst.rockscissor.Tile.SCHERE;
-import static de.joergherbst.rockscissor.Tile.STEIN;
+import static de.joergherbst.rockscissors.Tile.BRUNNEN;
+import static de.joergherbst.rockscissors.Tile.SCHERE;
+import static de.joergherbst.rockscissors.Tile.STEIN;
 
 import org.easyrules.api.Rule;
 
 import java.util.Objects;
 
-public class SchereUndSteinFallenInBrunnen extends RockScissorRule implements Rule {
+public class SchereUndSteinFallenInBrunnen extends RockScissorsRule implements Rule {
 
     @Override
     public String getName() {

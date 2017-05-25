@@ -1,10 +1,10 @@
-package de.joergherbst.rockscissor;
+package de.joergherbst.rockscissors;
 
-import static de.joergherbst.rockscissor.GameResult.GameResultCode.DRAW;
-import static de.joergherbst.rockscissor.GameResult.GameResultCode.LOST;
-import static de.joergherbst.rockscissor.GameResult.GameResultCode.WIN;
+import static de.joergherbst.rockscissors.GameResult.GameResultCode.DRAW;
+import static de.joergherbst.rockscissors.GameResult.GameResultCode.LOST;
+import static de.joergherbst.rockscissors.GameResult.GameResultCode.WIN;
 
-import de.joergherbst.rockscissor.rules.RockScissorRule;
+import de.joergherbst.rockscissors.rules.RockScissorsRule;
 import lombok.extern.slf4j.Slf4j;
 import org.easyrules.api.RulesEngine;
 import org.easyrules.core.RulesEngineBuilder;
@@ -53,7 +53,7 @@ public class GameEngine {
                 .withSilentMode(true)
                 .build();
 
-        List<? extends RockScissorRule> gameRules = createRules()
+        List<? extends RockScissorsRule> gameRules = createRules()
             .map(rule -> registerRuleInEngine(rulesEngine, rule))
             .map(rule -> rule.setTiles(firstSelection,secondSelection))
             .collect(Collectors.toList());
@@ -69,19 +69,19 @@ public class GameEngine {
         return winner;
     }
 
-    private RockScissorRule registerRuleInEngine(RulesEngine rulesEngine, RockScissorRule rule) {
+    private RockScissorsRule registerRuleInEngine(RulesEngine rulesEngine, RockScissorsRule rule) {
         rulesEngine.registerRule(rule);
         return rule;
     }
 
-    private Stream<? extends RockScissorRule> createRules() {
-        Stream<? extends RockScissorRule> rules = gameConfiguration.getRules()
+    private Stream<? extends RockScissorsRule> createRules() {
+        Stream<? extends RockScissorsRule> rules = gameConfiguration.getRules()
             .stream()
             .map(clazz -> createPrototype(clazz));
         return rules;
     }
 
-    private RockScissorRule createPrototype(Class<? extends RockScissorRule> clazz) {
+    private RockScissorsRule createPrototype(Class<? extends RockScissorsRule> clazz) {
         try {
             return clazz.newInstance();
         } catch (InstantiationException | IllegalAccessException e) {

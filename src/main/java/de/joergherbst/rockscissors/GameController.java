@@ -1,4 +1,4 @@
-package de.joergherbst.rockscissor;
+package de.joergherbst.rockscissors;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;

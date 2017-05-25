@@ -1,9 +1,9 @@
-package de.joergherbst.rockscissor.rules;
+package de.joergherbst.rockscissors.rules;
 
-import de.joergherbst.rockscissor.Tile;
+import de.joergherbst.rockscissors.Tile;
 import org.easyrules.api.Rule;
 
-public class SchereSchneidetPapier extends RockScissorRule implements Rule {
+public class SchereSchneidetPapier extends RockScissorsRule implements Rule {
 
     @Override
     public String getName() {

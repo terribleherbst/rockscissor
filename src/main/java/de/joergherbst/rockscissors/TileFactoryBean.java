@@ -1,4 +1,4 @@
-package de.joergherbst.rockscissor;
+package de.joergherbst.rockscissors;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

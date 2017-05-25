@@ -1,17 +1,17 @@
-package de.joergherbst.rockscissor.rules;
+package de.joergherbst.rockscissors.rules;
 
-import de.joergherbst.rockscissor.Tile;
+import de.joergherbst.rockscissors.Tile;
 import org.easyrules.core.BasicRule;
 
 import java.util.Optional;
 
-public abstract class RockScissorRule extends BasicRule {
+public abstract class RockScissorsRule extends BasicRule {
 
     protected Tile firstPlayerSelection;
     protected Tile seconPlayerSelection;
     private Optional<Boolean> won = Optional.empty();
 
-    public RockScissorRule setTiles(Tile firstPlayerSelection, Tile seconPlayerSelection) {
+    public RockScissorsRule setTiles(Tile firstPlayerSelection, Tile seconPlayerSelection) {
         this.firstPlayerSelection = firstPlayerSelection;
         this.seconPlayerSelection = seconPlayerSelection;
         return this;

@@ -1,8 +1,8 @@
-package de.joergherbst.rockscissor.players;
+package de.joergherbst.rockscissors.players;
 
-import de.joergherbst.rockscissor.GameConfiguration;
-import de.joergherbst.rockscissor.Player;
-import de.joergherbst.rockscissor.Tile;
+import de.joergherbst.rockscissors.GameConfiguration;
+import de.joergherbst.rockscissors.Player;
+import de.joergherbst.rockscissors.Tile;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

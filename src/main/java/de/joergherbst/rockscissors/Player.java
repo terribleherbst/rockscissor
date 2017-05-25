@@ -1,4 +1,4 @@
-package de.joergherbst.rockscissor;
+package de.joergherbst.rockscissors;
 
 public interface Player {
     Tile choose();

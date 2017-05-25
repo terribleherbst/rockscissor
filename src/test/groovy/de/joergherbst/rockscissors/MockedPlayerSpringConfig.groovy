@@ -1,6 +1,5 @@
-package de.joergherbst.rockscissor
+package de.joergherbst.rockscissors
 
-import de.joergherbst.rockscissor.Player
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Primary
 import spock.mock.DetachedMockFactory

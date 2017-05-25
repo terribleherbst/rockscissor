@@ -1,6 +1,5 @@
-package de.joergherbst.rockscissor.players
+package de.joergherbst.rockscissors.players
 
-import de.joergherbst.rockscissor.players.RandomComputerPlayer
 import spock.lang.Specification
 
 

@@ -1,15 +1,15 @@
-package de.joergherbst.rockscissor
+package de.joergherbst.rockscissors
 
-import de.joergherbst.rockscissor.rules.PapierDecktBrunnenZu
-import de.joergherbst.rockscissor.rules.PapierWickeltStein
-import de.joergherbst.rockscissor.rules.SchereSchneidetPapier
-import de.joergherbst.rockscissor.rules.SchereUndSteinFallenInBrunnen
-import de.joergherbst.rockscissor.rules.SteinSchleiftSchere
+import de.joergherbst.rockscissors.rules.PapierDecktBrunnenZu
+import de.joergherbst.rockscissors.rules.PapierWickeltStein
+import de.joergherbst.rockscissors.rules.SchereSchneidetPapier
+import de.joergherbst.rockscissors.rules.SchereUndSteinFallenInBrunnen
+import de.joergherbst.rockscissors.rules.SteinSchleiftSchere
 import spock.lang.Specification
 import spock.lang.Unroll
 
-import static de.joergherbst.rockscissor.GameResult.GameResultCode.*
-import static de.joergherbst.rockscissor.Tile.*
+import static de.joergherbst.rockscissors.GameResult.GameResultCode.*
+import static de.joergherbst.rockscissors.Tile.*
 
 class GameEngineTest extends Specification {
 

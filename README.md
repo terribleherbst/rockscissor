@@ -1,4 +1,4 @@
-# Rock, Paper, Scissor
+# Rock, Paper, Scissors
 
 A basic implementation of the popular game [Rock, Paper, Scissors](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors) in Java
 using Spring Boot and [Easyrules](https://github.com/j-easy/easy-rules/wiki).
@@ -9,7 +9,7 @@ embedded server will start an at [http://localhost:8080/game](http://localhost:8
 an parameter `choice` with one of the values:
 * Stein (Rock)
 * Papier (Paper)
-* Schere (Scissor)
+* Schere (Scissors)
 
 For example you can call [http://localhost:8080/game?choice=Stein](http://localhost:8080/game?choice=Stein) 
 to play a game with a choice of Stein.

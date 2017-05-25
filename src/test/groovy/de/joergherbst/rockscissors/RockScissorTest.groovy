@@ -1,4 +1,4 @@
-package de.joergherbst.rockscissor
+package de.joergherbst.rockscissors
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.context.embedded.LocalServerPort

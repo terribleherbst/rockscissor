@@ -1,4 +1,4 @@
-package de.joergherbst.rockscissor;
+package de.joergherbst.rockscissors;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package de.joergherbst.rockscissor
+package de.joergherbst.rockscissors
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.context.embedded.LocalServerPort
@@ -9,8 +9,8 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import spock.lang.Specification
 
-import static de.joergherbst.rockscissor.GameResult.GameResultCode.DRAW
-import static de.joergherbst.rockscissor.GameResult.GameResultCode.LOST
+import static de.joergherbst.rockscissors.GameResult.GameResultCode.DRAW
+import static de.joergherbst.rockscissors.GameResult.GameResultCode.LOST
 
 @SpringBootTest(classes = RockScissor.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Import([MockedPlayerSpringConfig])
