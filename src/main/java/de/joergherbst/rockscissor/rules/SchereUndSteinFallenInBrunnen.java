@@ -1,13 +1,14 @@
 package de.joergherbst.rockscissor.rules;
 
 import static de.joergherbst.rockscissor.Tile.BRUNNEN;
-import static de.joergherbst.rockscissor.Tile.PAPIER;
+import static de.joergherbst.rockscissor.Tile.SCHERE;
+import static de.joergherbst.rockscissor.Tile.STEIN;
 
 import org.easyrules.api.Rule;
 
 import java.util.Objects;
 
-public class AllesAusserPapierFaelltInBrunnen extends RockScissorRule implements Rule {
+public class SchereUndSteinFallenInBrunnen extends RockScissorRule implements Rule {
 
     @Override
     public String getName() {
@@ -17,8 +18,7 @@ public class AllesAusserPapierFaelltInBrunnen extends RockScissorRule implements
     @Override
     public boolean evaluate() {
         return firstPlayerSelection.equals(BRUNNEN)
-            && !Objects.equals(seconPlayerSelection, BRUNNEN)
-            && !Objects.equals(seconPlayerSelection, PAPIER);
+            && (Objects.equals(seconPlayerSelection, SCHERE) || Objects.equals(seconPlayerSelection, STEIN));
     }
 
 }

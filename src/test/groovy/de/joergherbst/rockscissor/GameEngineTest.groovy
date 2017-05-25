@@ -1,9 +1,9 @@
 package de.joergherbst.rockscissor
 
-import de.joergherbst.rockscissor.rules.AllesAusserPapierFaelltInBrunnen
 import de.joergherbst.rockscissor.rules.PapierDecktBrunnenZu
 import de.joergherbst.rockscissor.rules.PapierWickeltStein
 import de.joergherbst.rockscissor.rules.SchereSchneidetPapier
+import de.joergherbst.rockscissor.rules.SchereUndSteinFallenInBrunnen
 import de.joergherbst.rockscissor.rules.SteinSchleiftSchere
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -38,7 +38,7 @@ class GameEngineTest extends Specification {
         given:
             def configuration = new GameConfiguration(
                     rules: [
-                            AllesAusserPapierFaelltInBrunnen.class,
+                            SchereUndSteinFallenInBrunnen.class,
                             PapierWickeltStein.class,
                             SchereSchneidetPapier.class,
                             SteinSchleiftSchere.class,
