@@ -136,8 +136,8 @@
             <property name="tokens" value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH"/>
         </module>
         <module name="NoFinalizer"/> <!-- 5.4 -->
-        <module name="AvoidStarImport"/> <!-- Project Team Decision -->
-        <module name="UnusedImports"/> <!-- Project Team Decision -->
+        <module name="AvoidStarImport"/>
+        <module name="UnusedImports"/>
         <module name="RedundantImport"/>
         <module name="IllegalImport">
             <property name="illegalPkgs"
