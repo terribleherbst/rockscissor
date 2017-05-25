@@ -50,8 +50,8 @@ class RockScissorTest extends Specification {
             entity.getBody()
     }
 
-    @Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
-    def "Each request should respond in less than 10ms"() {
+    @Timeout(value = 2000, unit = TimeUnit.MILLISECONDS)
+    def "Each request should respond in less than 20ms"() {
         when:
             for (int i = 0; i < 100; i++) {
                 ResponseEntity<GameResult> entity = restTemplate.getForEntity("http://localhost:${port}/game/?choice=Stein", GameResult.class);
