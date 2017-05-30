@@ -15,12 +15,14 @@ plugins {
     id 'groovy'
     id 'checkstyle'
     id 'findbugs'
+    id 'jacoco'
 }
 
 group 'de.joergherbst'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
 
@@ -28,8 +30,6 @@ repositories {
     mavenCentral()
     jcenter()
 }
-
-apply plugin: 'org.springframework.boot'
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
@@ -42,4 +42,10 @@ dependencies {
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile('org.spockframework:spock-core:1.1-groovy-2.4')
     testCompile('org.spockframework:spock-spring:1.1-groovy-2.4')
+}
+
+tasks.withType(JacocoReport) {
+    reports {
+        html.destination "${buildDir}/jacocoHtml"
+    }
 }
