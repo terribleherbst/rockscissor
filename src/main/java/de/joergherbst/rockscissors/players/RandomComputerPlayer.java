@@ -12,20 +12,20 @@ import java.util.stream.Collectors;
 @Component
 public class RandomComputerPlayer implements Player {
 
-    private final GameConfiguration configuration;
-
     private List<Tile> possibilities;
 
     public RandomComputerPlayer(GameConfiguration configuration) {
-        this.configuration = configuration;
+        GameConfiguration configuration1 = configuration;
         this.possibilities = configuration.getTiles().stream().map(Tile::new).collect(Collectors.toList());
     }
 
     public Tile choose() {
-        return chooseEachTIleEqualPropability();
+        return chooseEachTileEqualPropability();
     }
 
-    private Tile chooseEachTIleEqualPropability() {
-        return possibilities.get(ThreadLocalRandom.current().nextInt(possibilities.size()));
+    private Tile chooseEachTileEqualPropability() {
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+        int selection = random.nextInt(possibilities.size());
+        return possibilities.get(selection);
     }
 }

@@ -1,7 +1,8 @@
 package de.joergherbst.rockscissors.players
 
+import de.joergherbst.rockscissors.GameConfiguration
+import de.joergherbst.rockscissors.Tile
 import spock.lang.Specification
-
 
 class RandomComputerPlayerTest extends Specification {
     def "Computer should use Schere in 1/3 of all cases"() {
@@ -12,7 +13,10 @@ class RandomComputerPlayerTest extends Specification {
             int countSchere;
             def total = 1_000_000
             for (int i = 0; i < total; i++) {
-                countSchere += player.choose() == configuration.getTiles().last() ? 1 : 0
+                def selectedTile = player.choose()
+                def lastTile = new Tile(configuration.getTiles().last())
+                def firstSelected = selectedTile == lastTile
+                countSchere += firstSelected ? 1 : 0
             }
         then:
             countSchere > total * 0.99 * 1 / 3.0
