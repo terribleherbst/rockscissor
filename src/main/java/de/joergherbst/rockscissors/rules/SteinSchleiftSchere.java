@@ -1,18 +1,20 @@
 package de.joergherbst.rockscissors.rules;
 
-import de.joergherbst.rockscissors.Tile;
-import org.easyrules.api.Rule;
+import static de.joergherbst.rockscissors.Tile.SCHERE;
+import static de.joergherbst.rockscissors.Tile.STEIN;
+
+import org.jeasy.rules.api.Facts;
+import org.jeasy.rules.api.Rule;
 
 public class SteinSchleiftSchere extends RockScissorsRule implements Rule {
 
-    @Override
-    public String getName() {
-        return "Stein schleift Schere";
+    public SteinSchleiftSchere() {
+        super("Stein schleift Schere");
     }
 
     @Override
-    public boolean evaluate() {
-        return firstPlayerSelection.equals(Tile.STEIN) && seconPlayerSelection.equals(Tile.SCHERE);
+    public boolean evaluate(Facts facts) {
+        return STEIN.equals(facts.get("FIRST_PLAYER_SELECTION")) && SCHERE.equals(facts.get("SECOND_PLAYER_SELECTION"));
     }
 
 }

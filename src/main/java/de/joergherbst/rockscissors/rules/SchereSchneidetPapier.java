@@ -1,18 +1,20 @@
 package de.joergherbst.rockscissors.rules;
 
-import de.joergherbst.rockscissors.Tile;
-import org.easyrules.api.Rule;
+import static de.joergherbst.rockscissors.Tile.PAPIER;
+import static de.joergherbst.rockscissors.Tile.SCHERE;
+
+import org.jeasy.rules.api.Facts;
+import org.jeasy.rules.api.Rule;
 
 public class SchereSchneidetPapier extends RockScissorsRule implements Rule {
 
-    @Override
-    public String getName() {
-        return "Schere schneider Papier";
+    public SchereSchneidetPapier() {
+        super("Schere schneider Papier");
     }
 
     @Override
-    public boolean evaluate() {
-        return firstPlayerSelection.equals(Tile.SCHERE) && seconPlayerSelection.equals(Tile.PAPIER);
+    public boolean evaluate(Facts facts) {
+        return SCHERE.equals(facts.get("FIRST_PLAYER_SELECTION")) && PAPIER.equals(facts.get("SECOND_PLAYER_SELECTION"));
     }
 
 }

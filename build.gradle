@@ -34,7 +34,7 @@ repositories {
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
-    compile 'org.easyrules:easyrules-core:2.4.0'
+    compile 'org.jeasy:easy-rules-core:3.0.0'
 
     compileOnly('org.projectlombok:lombok')
 
@@ -43,6 +43,11 @@ dependencies {
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile('org.spockframework:spock-core:1.1-groovy-2.4')
     testCompile('org.spockframework:spock-spring:1.1-groovy-2.4')
+}
+
+tasks.withType(FindBugs) {
+    reports.xml.enabled false
+    reports.html.enabled true
 }
 
 tasks.withType(JacocoReport) {

@@ -1,18 +1,19 @@
 package de.joergherbst.rockscissors.rules;
 
-import de.joergherbst.rockscissors.Tile;
-import org.easyrules.api.Rule;
+import static de.joergherbst.rockscissors.Tile.PAPIER;
+import static de.joergherbst.rockscissors.Tile.STEIN;
+
+import org.jeasy.rules.api.Facts;
+import org.jeasy.rules.api.Rule;
 
 public class PapierWickeltStein extends RockScissorsRule implements Rule {
 
-    @Override
-    public String getName() {
-        return "Papier wickelt Stein";
+    public PapierWickeltStein() {
+        super("Papier wickelt Stein");
     }
 
     @Override
-    public boolean evaluate() {
-        return firstPlayerSelection.equals(Tile.PAPIER) && seconPlayerSelection.equals(Tile.STEIN);
+    public boolean evaluate(Facts facts) {
+        return PAPIER.equals(facts.get("FIRST_PLAYER_SELECTION")) && STEIN.equals(facts.get("SECOND_PLAYER_SELECTION"));
     }
-
 }

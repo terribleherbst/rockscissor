@@ -15,7 +15,6 @@ public class RandomComputerPlayer implements Player {
     private List<Tile> possibilities;
 
     public RandomComputerPlayer(GameConfiguration configuration) {
-        GameConfiguration configuration1 = configuration;
         this.possibilities = configuration.getTiles().stream().map(Tile::new).collect(Collectors.toList());
     }
 

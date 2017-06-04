@@ -4,21 +4,19 @@ import static de.joergherbst.rockscissors.Tile.BRUNNEN;
 import static de.joergherbst.rockscissors.Tile.SCHERE;
 import static de.joergherbst.rockscissors.Tile.STEIN;
 
-import org.easyrules.api.Rule;
-
-import java.util.Objects;
+import org.jeasy.rules.api.Facts;
+import org.jeasy.rules.api.Rule;
 
 public class SchereUndSteinFallenInBrunnen extends RockScissorsRule implements Rule {
 
-    @Override
-    public String getName() {
-        return "Das Ding fällt in den Brunnen wenn es nicht Papier ist";
+    public SchereUndSteinFallenInBrunnen() {
+        super("Das Ding fällt in den Brunnen wenn es nicht Papier ist");
     }
 
     @Override
-    public boolean evaluate() {
-        return firstPlayerSelection.equals(BRUNNEN)
-            && (Objects.equals(seconPlayerSelection, SCHERE) || Objects.equals(seconPlayerSelection, STEIN));
+    public boolean evaluate(Facts facts) {
+        return BRUNNEN.equals(facts.get("FIRST_PLAYER_SELECTION"))
+            && (SCHERE.equals(facts.get("SECOND_PLAYER_SELECTION")) || STEIN.equals(facts.get("SECOND_PLAYER_SELECTION")));
     }
 
 }

@@ -6,11 +6,12 @@ import static de.joergherbst.rockscissors.GameResult.GameResultCode.WIN;
 
 import de.joergherbst.rockscissors.rules.RockScissorsRule;
 import lombok.extern.slf4j.Slf4j;
-import org.easyrules.api.RulesEngine;
-import org.easyrules.core.RulesEngineBuilder;
+import org.jeasy.rules.api.Facts;
+import org.jeasy.rules.api.Rules;
+import org.jeasy.rules.api.RulesEngine;
+import org.jeasy.rules.core.RulesEngineBuilder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -20,9 +21,11 @@ import java.util.stream.Stream;
 public class GameEngine {
 
     private final GameConfiguration gameConfiguration;
+    private Rules rules;
 
     public GameEngine(GameConfiguration gameConfiguration) {
         this.gameConfiguration = gameConfiguration;
+        rules = new Rules(createRules().collect(Collectors.toSet()));
     }
 
     public GameResult playGame(Tile humanChoice, Tile computerChoice) {
@@ -43,7 +46,6 @@ public class GameEngine {
 
     private Optional<Boolean> lostGame(Tile firstSelection, Tile secondSelection) {
         return wonGame(secondSelection, firstSelection);
-
     }
 
     private Optional<Boolean> wonGame(Tile firstSelection, Tile secondSelection) {
@@ -53,25 +55,17 @@ public class GameEngine {
                 .withSilentMode(true)
                 .build();
 
-        List<? extends RockScissorsRule> gameRules = createRules()
-            .map(rule -> registerRuleInEngine(rulesEngine, rule))
-            .map(rule -> rule.setTiles(firstSelection,secondSelection))
-            .collect(Collectors.toList());
 
-        rulesEngine.fireRules();
+        Facts facts = new Facts();
+        facts.put("FIRST_PLAYER_SELECTION", firstSelection);
+        facts.put("SECOND_PLAYER_SELECTION", secondSelection);
 
-        Optional<Boolean> winner = gameRules
-            .stream()
-            .map(rule -> rule.getWon())
-            .filter(Optional::isPresent)
-            .map(result -> result.get())
-            .findAny();
-        return winner;
-    }
+        rulesEngine.fire(rules,facts);
 
-    private RockScissorsRule registerRuleInEngine(RulesEngine rulesEngine, RockScissorsRule rule) {
-        rulesEngine.registerRule(rule);
-        return rule;
+        if ("FIRST_WON".equals(facts.get("GAME_RESULT"))) {
+            return Optional.of(Boolean.TRUE);
+        }
+        return Optional.empty();
     }
 
     private Stream<? extends RockScissorsRule> createRules() {
